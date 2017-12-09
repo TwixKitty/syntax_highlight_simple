@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+  <head>
+    <title>Simple Highlight Example</title>
+    <link rel='stylesheet' type='text/css' href='syntaxlib/syntax.css'/>
+    <script src='syntaxlib/syntax.js'></script>
+  </head>
+  <body>
+<pre class='h_code'>
+Test.js
+
+var test = 1;
+test = test + 2;
+
+function test() {
+  console.log("Hello, world!");
+}
+
+// this should not bold the for, function, or var
+
+/*
+multiline 2 comments!
+woo!
+*/
+
+</pre>
+  <script>
+    addHighlightRule("(\/\/.*)", '<span style="color:green">$1</span>'); // add rule for single line c-style comment
+    addHighlightRule("(/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/)", '<span style="color:green">$1</span>'); // scary public-domain regex for multi-line comments
+    addHighlightRule("(\".*\")", '<span style="color:grey">$1</span>'); // add rule for string highlight
+    addHighlightRule("([1-9])", '<span style="color:darkorange;">$1</span>'); // add number highlight rule
+    highlight_all();
+  </script>
+  </body>
+</html>
